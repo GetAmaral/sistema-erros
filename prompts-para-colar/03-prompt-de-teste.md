@@ -1,31 +1,25 @@
-# Prompt de Teste — Bateria Completa para Validar Classificador v4.1
+# Prompt de Teste
 
-Cole este prompt inteiro em outra IA (Claude, etc.) para ela executar os testes no N8N DEV.
+## O que fazer
+
+Envie cada mensagem abaixo para o webhook do N8N DEV. Aguarde 12 segundos entre cada envio (o contexto do user é limpo automaticamente). Após enviar todas as mensagens de cada grupo, consulte o Supabase e registre a resposta da IA para cada uma.
+
+As mensagens do Grupo 1 devem ser enviadas **5 vezes cada**. Todas as demais, **1 vez cada**.
+
+No final, gere uma tabela com: ID, mensagem enviada, resposta da IA (na íntegra).
 
 ---
 
-## Contexto
-
-Você vai testar o classificador de intenções do Total Assistente enviando mensagens via webhook e verificando as respostas no Supabase.
-
 ## Ambiente
 
-- **Webhook DEV:** `http://76.13.172.17:5678/webhook/dev-whatsapp`
-- **Supabase AI Messages:** `https://hkzgttizcfklxfafkzfl.supabase.co`
-- **Supabase Service Key:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhremd0dGl6Y2ZrbHhmYWZremZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDIwODYwMSwiZXhwIjoyMDg1Nzg0NjAxfQ._DkH_9A7E1xe6WXOsWNKSWgsRcYJfxjhyTvpXFm23ok`
-- **User de teste:** Luiz Felipe, telefone 554391936205, email animadoluiz@gmail.com
-- **Tabela de respostas:** `log_users_messages` (campo `user_message` e `ai_message`)
-
-## Como enviar uma mensagem
-
+**Webhook:**
 ```bash
 TIMESTAMP=$(date +%s)
-WEBHOOK_URL="http://76.13.172.17:5678/webhook/dev-whatsapp"
 MESSAGE="MENSAGEM_AQUI"
 LABEL="LABEL_AQUI"
 
 curl -s -o /dev/null -w "%{http_code}" \
-  -X POST "$WEBHOOK_URL" \
+  -X POST "http://76.13.172.17:5678/webhook/dev-whatsapp" \
   -H "Content-Type: application/json" \
   -d '{
     "messaging_product": "whatsapp",
@@ -52,140 +46,103 @@ curl -s -o /dev/null -w "%{http_code}" \
   }'
 ```
 
-## Como consultar as respostas
-
+**Consulta de respostas:**
 ```bash
-SUPABASE_URL="https://hkzgttizcfklxfafkzfl.supabase.co"
-SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhremd0dGl6Y2ZrbHhmYWZremZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDIwODYwMSwiZXhwIjoyMDg1Nzg0NjAxfQ._DkH_9A7E1xe6WXOsWNKSWgsRcYJfxjhyTvpXFm23ok"
-
-curl -s "$SUPABASE_URL/rest/v1/log_users_messages?user_phone=eq.554391936205&order=created_at.desc&limit=N" \
-  -H "apikey: $SUPABASE_KEY" \
-  -H "Authorization: Bearer $SUPABASE_KEY" | python3 -m json.tool
+curl -s "https://hkzgttizcfklxfafkzfl.supabase.co/rest/v1/log_users_messages?user_phone=eq.554391936205&order=created_at.desc&limit=50" \
+  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhremd0dGl6Y2ZrbHhmYWZremZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDIwODYwMSwiZXhwIjoyMDg1Nzg0NjAxfQ._DkH_9A7E1xe6WXOsWNKSWgsRcYJfxjhyTvpXFm23ok" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhremd0dGl6Y2ZrbHhmYWZremZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDIwODYwMSwiZXhwIjoyMDg1Nzg0NjAxfQ._DkH_9A7E1xe6WXOsWNKSWgsRcYJfxjhyTvpXFm23ok"
 ```
 
-## Regras de execução
+---
 
-1. **Intervalo:** Esperar 12 segundos entre cada envio (o contexto do user é limpo automaticamente a cada ~10s)
-2. **Verificação:** Após enviar TODOS os testes de um grupo, esperar 15s e consultar o Supabase
-3. **NUNCA testar com payload de áudio** — causa problemas no workflow
-4. **Output:** Para cada teste, registrar a mensagem enviada, a resposta da IA, e se o resultado está correto
+## Mensagens
 
-## Testes a executar
+### Grupo 1 — 5 vezes cada
 
-### GRUPO 1 — Testes que FALHAVAM antes (5 repetições cada)
-Estes são os testes que motivaram a mudança. Cada um deve ser enviado 5 vezes para medir consistência.
+| ID | Mensagem |
+|----|----------|
+| P1 | `Enviar mensagem Gustavo Garcia as 10h30` |
+| Z1 | `Café com a Ana 15 reais segunda` |
 
-| ID | Mensagem | Resultado esperado | Repetições |
-|----|----------|--------------------|------------|
-| P1 | `Enviar mensagem Gustavo Garcia as 10h30` | Evento agendado (agenda) | 5x |
-| Z1 | `Café com a Ana 15 reais segunda` | Evento agendado (agenda) com valor no nome | 5x |
+### Grupo 2 — 1 vez cada
 
-### GRUPO 2 — Testes que FUNCIONAVAM antes (1x cada, smoke test)
-Verificar que nada quebrou.
+| ID | Mensagem |
+|----|----------|
+| A1 | `Ligar pro João às 15h` |
+| F1 | `Paguei o almoço pro Gustavo 50 reais` |
+| C1 | `Preciso lembrar de ir no dentista sexta` |
+| X1 | `Almocei hoje 45 reais` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| A1 | `Ligar pro João às 15h` | Evento agendado |
-| F1 | `Paguei o almoço pro Gustavo 50 reais` | Gasto registrado R$50 |
-| C1 | `Preciso lembrar de ir no dentista sexta` | Evento agendado |
-| X1 | `Almocei hoje 45 reais` | Gasto registrado R$45 |
+### Grupo 3 — 1 vez cada
 
-### GRUPO 3 — Novos cenários de AGENDA com verbos ambíguos (1x cada)
+| ID | Mensagem |
+|----|----------|
+| A2 | `Falar com Maria amanhã às 9h` |
+| A3 | `Passar no mercado sexta às 18h` |
+| A4 | `Buscar as crianças amanhã 11h30` |
+| A5 | `Lembrar de pagar o boleto dia 30` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| A2 | `Falar com Maria amanhã às 9h` | Evento agendado |
-| A3 | `Passar no mercado sexta às 18h` | Evento agendado |
-| A4 | `Buscar as crianças amanhã 11h30` | Evento agendado (NÃO busca) |
-| A5 | `Lembrar de pagar o boleto dia 30` | Evento agendado |
+### Grupo 4 — 1 vez cada
 
-### GRUPO 4 — Novos cenários de GASTO com contexto social (1x cada)
+| ID | Mensagem |
+|----|----------|
+| F2 | `Dividi a conta 30 cada` |
+| F3 | `Dei 20 reais pro moleque do carro` |
+| F4 | `O uber deu 35 reais` |
+| F5 | `Coloquei gasolina 200` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| F2 | `Dividi a conta 30 cada` | Gasto registrado R$30 |
-| F3 | `Dei 20 reais pro moleque do carro` | Gasto registrado R$20 |
-| F4 | `O uber deu 35 reais` | Gasto registrado R$35 |
-| F5 | `Coloquei gasolina 200` | Gasto registrado R$200 |
+### Grupo 5 — 1 vez cada
 
-### GRUPO 5 — Gasto FUTURO sem data (1x cada)
+| ID | Mensagem |
+|----|----------|
+| GF1 | `Vou pagar 100 na lavação do carro` |
+| GF2 | `Pago 100 pro Luan` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| GF1 | `Vou pagar 100 na lavação do carro` | Gasto registrado R$100 |
-| GF2 | `Pago 100 pro Luan` | Gasto registrado R$100 |
+### Grupo 6 — 1 vez cada
 
-### GRUPO 6 — Gasto FUTURO com data = agenda (1x cada)
+| ID | Mensagem |
+|----|----------|
+| GA1 | `Pagar 100 reais amanhã pro Luan` |
+| GA2 | `Comprar presente de 100 sábado` |
+| GA3 | `Pago 100 pro Luan amanhã` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| GA1 | `Pagar 100 reais amanhã pro Luan` | Evento agendado com R$100 no nome |
-| GA2 | `Comprar presente de 100 sábado` | Evento agendado com R$100 no nome |
-| GA3 | `Pago 100 pro Luan amanhã` | Evento agendado com R$100 no nome |
+### Grupo 7 — 1 vez cada
 
-### GRUPO 7 — Busca com data (NÃO deve virar agenda) (1x cada)
+| ID | Mensagem |
+|----|----------|
+| B1 | `Quanto gastei hoje?` |
+| B2 | `O que tenho amanhã?` |
+| B3 | `Meus gastos da semana` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| B1 | `Quanto gastei hoje?` | Listagem de gastos (busca financeira) |
-| B2 | `O que tenho amanhã?` | Listagem de eventos (busca agenda) |
-| B3 | `Meus gastos da semana` | Listagem de gastos (busca financeira) |
+### Grupo 8 — 1 vez cada
 
-### GRUPO 8 — Exclusão com negações novas (1x cada)
+| ID | Mensagem |
+|----|----------|
+| E1 | `Esquece o dentista` |
+| E2 | `Deixa pra lá o treino de amanhã` |
+| E3 | `Não preciso mais da reunião` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| E1 | `Esquece o dentista` | Exclusão/busca de evento para excluir |
-| E2 | `Deixa pra lá o treino de amanhã` | Exclusão de evento |
-| E3 | `Não preciso mais da reunião` | Exclusão de evento |
+### Grupo 9 — 1 vez cada
 
-### GRUPO 9 — Recorrência implícita (1x cada)
+| ID | Mensagem |
+|----|----------|
+| R1 | `Academia segunda quarta e sexta 6h` |
+| R2 | `Inglês terça e quinta 19h` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| R1 | `Academia segunda quarta e sexta 6h` | Evento recorrente (WEEKLY;BYDAY=MO,WE,FR) |
-| R2 | `Inglês terça e quinta 19h` | Evento recorrente (WEEKLY;BYDAY=TU,TH) |
+### Grupo 10 — 1 vez cada
 
-### GRUPO 10 — Dica educativa (1x cada, verificar se a dica aparece)
+| ID | Mensagem |
+|----|----------|
+| D1 | `Enviar mensagem Gustavo Garcia as 10h30` |
+| D2 | `Pagar 100 reais amanhã pro Luan` |
+| D3 | `Reunião com Luan amanhã 16h` |
 
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| D1 | `Enviar mensagem Gustavo Garcia as 10h30` | Evento agendado + dica de formato |
-| D2 | `Pagar 100 reais amanhã pro Luan` | Evento agendado + dica de "depois que pagar, manda: paguei 100 pro Luan" |
-| D3 | `Reunião com Luan amanhã 16h` | Evento agendado SEM dica (mensagem clara) |
+### Grupo 11 — 1 vez cada
 
-### GRUPO 11 — Smoke tests de features não alteradas (1x cada)
-
-| ID | Mensagem | Resultado esperado |
-|----|----------|--------------------|
-| S1 | `oi` | Saudação (padrão) |
-| S2 | `Muda a reunião pra quinta` | Edição de evento |
-| S3 | `Cancela o dentista de sexta` | Exclusão de evento |
-| S4 | `Recebi 5000 do freela` | Gasto registrado como entrada/receita R$5000 |
-| S5 | `Treino todo dia 7h` | Evento recorrente diário |
-
-## Total: 38 testes
-
-- Grupo 1: 10 envios (2 mensagens x 5 repetições)
-- Grupos 2-11: 28 envios (1x cada)
-- **Total: 38 envios**
-- **Tempo estimado:** ~8 minutos (38 x 12s)
-
-## Formato do relatório final
-
-Gere uma tabela com:
-
-```markdown
-| # | ID | Mensagem | Resposta da IA | Esperado | Veredicto |
-|---|-----|----------|---------------|----------|-----------|
-```
-
-E no final, um resumo:
-
-```markdown
-## Resumo
-- Total: X/38 PASS
-- Taxa: X%
-- Falhas: listar IDs que falharam
-- Regressões: listar testes do Grupo 2/11 que falharam (eram estáveis antes)
-```
+| ID | Mensagem |
+|----|----------|
+| S1 | `oi` |
+| S2 | `Muda a reunião pra quinta` |
+| S3 | `Cancela o dentista de sexta` |
+| S4 | `Recebi 5000 do freela` |
+| S5 | `Treino todo dia 7h` |
