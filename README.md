@@ -31,6 +31,7 @@ Pasta `prompts-para-colar/` contém os prompts finais prontos para copiar e cola
 
 | Arquivo | Node N8N | Ação |
 |---------|----------|------|
+| `00-master-system-v2.txt` | AI Agent (systemMessage) | Substituir prompt inteiro |
 | `01-classificador-v4.1.txt` | Escolher Branch (chainLlm prompt) | Substituir prompt inteiro |
 | `02-prompt-criar1-v3.txt` | prompt_criar1 (Set node, campo assignments.prompt.value) | Substituir prompt inteiro |
 
