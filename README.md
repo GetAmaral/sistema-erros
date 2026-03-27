@@ -23,7 +23,16 @@ hunts/
 
 | Data | Slug | Bug | Severidade | Status |
 |------|------|-----|-----------|--------|
-| 2026-03-27 | classificador-instavel | Classificador oscila em mensagens com verbos ambiguos | ALTA | Documentado |
+| 2026-03-27 | classificador-instavel | Classificador oscila em mensagens com verbos ambiguos | ALTA | Corrigido (v4.1) |
+
+## Prompts para Colar no N8N
+
+Pasta `prompts-para-colar/` contém os prompts finais prontos para copiar e colar:
+
+| Arquivo | Node N8N | Ação |
+|---------|----------|------|
+| `01-classificador-v4.1.txt` | Escolher Branch (chainLlm prompt) | Substituir prompt inteiro |
+| `02-prompt-criar1-v3.txt` | prompt_criar1 (Set node, campo assignments.prompt.value) | Substituir prompt inteiro |
 
 ## Comandos do Squad
 
