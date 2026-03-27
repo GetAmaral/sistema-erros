@@ -1,0 +1,203 @@
+==========================================
+INICIO: Fri Mar 27 08:15:39 PM UTC 2026
+==========================================
+
+=== BATERIA 1 — 5x cada (P1,A1,F1,C1,X1,Z1) ===
+[1] [20:15:39] B1_P1_r1: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[2] [20:15:48] B1_P1_r2: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[3] [20:15:56] B1_P1_r3: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[4] [20:16:05] B1_P1_r4: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[5] [20:16:13] B1_P1_r5: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[6] [20:16:22] B1_A1_r1: Ligar pro João às 15h
+  OK 200
+[7] [20:16:30] B1_A1_r2: Ligar pro João às 15h
+  OK 200
+[8] [20:16:39] B1_A1_r3: Ligar pro João às 15h
+  OK 200
+[9] [20:16:47] B1_A1_r4: Ligar pro João às 15h
+  OK 200
+[10] [20:16:56] B1_A1_r5: Ligar pro João às 15h
+  OK 200
+[11] [20:17:04] B1_F1_r1: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[12] [20:17:13] B1_F1_r2: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[13] [20:17:21] B1_F1_r3: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[14] [20:17:30] B1_F1_r4: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[15] [20:17:38] B1_F1_r5: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[16] [20:17:46] B1_C1_r1: Preciso lembrar de ir no dentista sexta
+  OK 200
+[17] [20:17:55] B1_C1_r2: Preciso lembrar de ir no dentista sexta
+  OK 200
+[18] [20:18:03] B1_C1_r3: Preciso lembrar de ir no dentista sexta
+  OK 200
+[19] [20:18:12] B1_C1_r4: Preciso lembrar de ir no dentista sexta
+  OK 200
+[20] [20:18:20] B1_C1_r5: Preciso lembrar de ir no dentista sexta
+  OK 200
+[21] [20:18:29] B1_X1_r1: Almocei hoje 45 reais
+  OK 200
+[22] [20:18:37] B1_X1_r2: Almocei hoje 45 reais
+  OK 200
+[23] [20:18:46] B1_X1_r3: Almocei hoje 45 reais
+  OK 200
+[24] [20:18:54] B1_X1_r4: Almocei hoje 45 reais
+  OK 200
+[25] [20:19:03] B1_X1_r5: Almocei hoje 45 reais
+  OK 200
+[26] [20:19:11] B1_Z1_r1: Café com a Ana 15 reais segunda
+  OK 200
+[27] [20:19:20] B1_Z1_r2: Café com a Ana 15 reais segunda
+  OK 200
+[28] [20:19:28] B1_Z1_r3: Café com a Ana 15 reais segunda
+  OK 200
+[29] [20:19:37] B1_Z1_r4: Café com a Ana 15 reais segunda
+  OK 200
+[30] [20:19:45] B1_Z1_r5: Café com a Ana 15 reais segunda
+  OK 200
+
+=== BATERIA 2 — 10x P1 ===
+[31] [20:19:54] B2_P1_r1: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[32] [20:20:02] B2_P1_r2: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[33] [20:20:10] B2_P1_r3: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[34] [20:20:19] B2_P1_r4: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[35] [20:20:27] B2_P1_r5: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[36] [20:20:36] B2_P1_r6: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[37] [20:20:44] B2_P1_r7: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[38] [20:20:53] B2_P1_r8: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[39] [20:21:01] B2_P1_r9: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[40] [20:21:10] B2_P1_r10: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+=== BATERIA 2 — 5x Z1 ===
+[41] [20:21:18] B2_Z1_r1: Café com a Ana 15 reais segunda
+  OK 200
+[42] [20:21:27] B2_Z1_r2: Café com a Ana 15 reais segunda
+  OK 200
+[43] [20:21:35] B2_Z1_r3: Café com a Ana 15 reais segunda
+  OK 200
+[44] [20:21:44] B2_Z1_r4: Café com a Ana 15 reais segunda
+  OK 200
+[45] [20:21:52] B2_Z1_r5: Café com a Ana 15 reais segunda
+  OK 200
+=== BATERIA 2 — 1x cada ===
+[46] [20:22:01] B2_A1: Ligar pro João às 15h
+  OK 200
+[47] [20:22:10] B2_F1: Paguei o almoço pro Gustavo 50 reais
+  OK 200
+[48] [20:22:18] B2_X1: Almocei hoje 45 reais
+  OK 200
+[49] [20:22:27] B2_C1: Preciso lembrar de ir no dentista sexta
+  OK 200
+[50] [20:22:35] B2_A3: Passar no mercado sexta às 18h
+  OK 200
+[51] [20:22:44] B2_A4: Buscar as crianças amanhã 11h30
+  OK 200
+[52] [20:22:52] B2_A5: Lembrar de pagar o boleto dia 30
+  OK 200
+[53] [20:23:01] B2_F2: Dividi a conta 30 cada
+  OK 200
+[54] [20:23:09] B2_F3: Dei 20 reais pro moleque do carro
+  OK 200
+[55] [20:23:18] B2_F4: O uber deu 35 reais
+  OK 200
+[56] [20:23:26] B2_F5: Coloquei gasolina 200
+  OK 200
+[57] [20:23:35] B2_GF1: Vou pagar 100 na lavação do carro
+  OK 200
+[58] [20:23:43] B2_GF2: Pago 100 pro Luan
+  OK 200
+[59] [20:23:52] B2_GA1: Pagar 100 reais amanhã pro Luan
+  OK 200
+[60] [20:24:00] B2_GA2: Comprar presente de 100 sábado
+  OK 200
+[61] [20:24:09] B2_GA3: Pago 100 pro Luan amanhã
+  OK 200
+[62] [20:24:17] B2_B1: Quanto gastei hoje?
+  OK 200
+[63] [20:24:26] B2_B2: O que tenho amanhã?
+  OK 200
+[64] [20:24:34] B2_B3: Meus gastos da semana
+  OK 200
+[65] [20:24:42] B2_E1: Esquece o dentista
+  OK 200
+[66] [20:24:51] B2_E2: Deixa pra lá o treino de amanhã
+  OK 200
+[67] [20:24:59] B2_E3: Não preciso mais da reunião
+  OK 200
+[68] [20:25:08] B2_R1: Academia segunda quarta e sexta 6h
+  OK 200
+[69] [20:25:16] B2_R2: Inglês terça e quinta 19h
+  OK 200
+[70] [20:25:25] B2_D1: Enviar mensagem Gustavo Garcia as 10h30
+  OK 200
+[71] [20:25:33] B2_D2: Pagar 100 reais amanhã pro Luan
+  OK 200
+[72] [20:25:42] B2_S1: oi
+  OK 200
+[73] [20:25:50] B2_D3: Reunião com Luan amanhã 16h
+  OK 200
+[74] [20:25:59] B2_S2: Muda a reunião pra quinta
+  OK 200
+[75] [20:26:07] B2_S3: Cancela o dentista de sexta
+  OK 200
+[76] [20:26:16] B2_S4: Recebi 5000 do freela
+  OK 200
+[77] [20:26:24] B2_S5: Treino todo dia 7h
+  OK 200
+
+=== BATERIA 3 — 5x X1 ===
+[78] [20:26:33] B3_X1_r1: Almocei hoje 45 reais
+  OK 200
+[79] [20:26:41] B3_X1_r2: Almocei hoje 45 reais
+  OK 200
+[80] [20:26:50] B3_X1_r3: Almocei hoje 45 reais
+  OK 200
+[81] [20:26:58] B3_X1_r4: Almocei hoje 45 reais
+  OK 200
+[82] [20:27:07] B3_X1_r5: Almocei hoje 45 reais
+  OK 200
+
+=== BATERIA 4 — 1x cada ===
+[83] [20:27:15] B4_G1: Jantei fora 80 reais
+  OK 200
+[84] [20:27:23] B4_G2: Paguei 120 de luz
+  OK 200
+[85] [20:27:32] B4_G3: Comprei remédio 35 reais
+  OK 200
+[86] [20:27:40] B4_A6: Reunião com dentista sexta 14h
+  OK 200
+[87] [20:27:49] B4_A7: Buscar encomenda amanhã 10h
+  OK 200
+[88] [20:27:57] B4_A8: Levar cachorro no veterinário segunda 16h
+  OK 200
+[89] [20:28:06] B4_R3: Pilates terça e quinta 8h
+  OK 200
+[90] [20:28:14] B4_R4: Terapia toda segunda 15h
+  OK 200
+[91] [20:28:23] B4_B4: Quanto gastei essa semana?
+  OK 200
+[92] [20:28:31] B4_B5: O que tenho amanhã?
+  OK 200
+
+==========================================
+FIM: Fri Mar 27 08:28:32 PM UTC 2026
+Total enviados: 92
+Falhas HTTP: 0
+==========================================
