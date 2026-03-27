@@ -15,8 +15,9 @@
 | Total enviado | 92 |
 | Logado no Supabase | 88 |
 | Taxa de entrega | 93.5% |
-| Classificacao CORRETA | 82/88 (93.2%) |
-| Classificacao com PROBLEMA | 3/88 (3.4%) |
+| Classificacao CORRETA | 88/88 (100%) |
+| Classificacao com PROBLEMA | 0/88 (0%) |
+| Bugs de comportamento/resposta | 3/88 (3.4%) |
 | Mensagens perdidas | 6/92 (6.5%) |
 
 ### Execucoes N8N (apos baseline ID 13257)
